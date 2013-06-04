@@ -93,6 +93,9 @@ sub setperms {
             push @a, $_;
         }
         print STDERR "\n";  # make sure Ctrl-C gets caught
+        if (-f $pf and scalar(@a) == 0) {
+          return;
+        }
         _print( $pf, @a );
         return;
     }
